@@ -2,6 +2,14 @@
     padding: 8px 16px;
   }
 
-  .custom-card-body {
-    padding: 0 1rem;
-  }
+.custom-card-body {
+  padding: 0 1rem;
+}
+
+.deals-body-style{
+  padding: '24px 24px 0 24px';
+}
+
+.total-count-card{
+  padding: '8px 8px 8px 12px';
+}
