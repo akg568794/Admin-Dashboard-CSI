@@ -4,6 +4,7 @@ import {DashboardTotalCountCard} from "@/components"
 import { useCustom } from "@refinedev/core"
 import { DASHBOARD_TOTAL_COUNTS_QUERY } from "@/graphql/queries"
 import { DashboardTotalCountsQuery } from "@/graphql/types"
+import {LatestActivities} from "@/components"
 
 export const Home = () => {
   const {data,isLoading}=useCustom<DashboardTotalCountsQuery>({
@@ -76,7 +77,7 @@ export const Home = () => {
       }}
       >
         <Col xs={24}>
-        {/* <DashboardLatestActivities/> */}
+        <LatestActivities/>
         </Col>
 
       </Row>
