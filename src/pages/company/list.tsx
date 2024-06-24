@@ -8,7 +8,7 @@ import { Text } from '@/components/text';
 import { Company } from '@/graphql/schema.types';
 import {currencyNumber} from "@/utilities";
 
-export const CompanyList = () => {
+export const CompanyList = ({children}:React.PropsWithChildren) => {
   const go=useGo();
   const {tableProps,filters}=useTable({
     resource:'companies',
@@ -44,6 +44,7 @@ export const CompanyList = () => {
     }
   })
   return (
+    <div>
     <List
     breadcrumb={false}
     headerButtons={()=>(
@@ -95,6 +96,7 @@ export const CompanyList = () => {
             <Text>
               {currencyNumber(company?.dealsAggregate?.[0].sum?.value || 0)}
             </Text>
+            
           )}
         />
         <Table.Column<Company>
@@ -110,5 +112,7 @@ export const CompanyList = () => {
         />
       </Table>
     </List>
+    {children}
+    </div>
   )
 }
