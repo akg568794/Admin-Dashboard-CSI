@@ -1,6 +1,7 @@
-import { Col, Row } from "antd"
+import { Col, Form, Row } from "antd"
 import { Edit,useForm } from "@refinedev/antd"
 import { UPDATE_COMPANY_MUTATION } from "@/graphql/mutations"
+import CustomAvatar from "@/components/custom-avatar"
 
 const EditPage = () => {
     const {saveButtonProps,formProps,formLoading,queryResult }=useForm({
@@ -8,7 +9,8 @@ const EditPage = () => {
         meta:{
             gqlMutation:UPDATE_COMPANY_MUTATION
         }
-       })
+       });
+    //    const{avatarUrl,name}
   return (
     <div>
         <Row gutter={[32,32]}>
@@ -17,8 +19,11 @@ const EditPage = () => {
                 isLoading={formLoading}
                 saveButtonProps={saveButtonProps}
                 breadcrumb={false}
-                
-                ></Edit>
+                >
+                <Form {...formProps} layout="vertical">
+                    <CustomAvatar shape="square" src={avatarUrl}/>
+                </Form>
+                </Edit>
 
 
 
