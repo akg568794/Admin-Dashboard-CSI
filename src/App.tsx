@@ -1,7 +1,7 @@
 import { Authenticated,GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
-import {Home,ForgotPassword,Login,Register} from "./pages"
+import {Home,ForgotPassword,Login,Register, CompanyList} from "./pages"
 
 import { useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
@@ -63,6 +63,7 @@ function App() {
                     </Authenticated>
                   }>
                     <Route index element={<Home/>}/>
+                    <Route path="/companies" element={<CompanyList/>}></Route>
                   </Route>
                 </Routes>
                 <RefineKbar />
