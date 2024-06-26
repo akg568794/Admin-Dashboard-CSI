@@ -148,7 +148,7 @@ export const CompanyContactsTable = () => {
           // render the filter dropdown
           filterDropdown={(props) => (
             <FilterDropdown {...props}>
-              <Input placeholder="Search Name" />
+              <Input placeholder="Search Name" /> 
             </FilterDropdown>
           )}
         />
