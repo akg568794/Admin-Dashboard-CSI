@@ -7,6 +7,7 @@ import KanbanItem from "@/components/tasks/kanban/item"
 import { TaskStage } from "@/graphql/schema.types"
 import { GetFieldsFromList } from "@refinedev/nestjs-query"
 import { TasksQuery } from "@/graphql/types"
+import ProjectCard from "@/components/tasks/kanban/card"
 
 const List = () => {
   const {data:stages, isLoading:isLoadingStages}=useList<TaskStage>({
@@ -77,7 +78,10 @@ const List = () => {
         >
           {taskStages.unnasignedStage.map((task)=>(
             <KanbanItem key={task.id} id={task.id} data={{...task,stageId:'unnasigned'}}>
-            {task.title}
+            <ProjectCard
+              {...task}
+              dueDate={task.dueDate || undefined}
+            />
 
             </KanbanItem>
           ))}

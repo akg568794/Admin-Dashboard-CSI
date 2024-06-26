@@ -38,6 +38,7 @@ const KanbanItem = ({children,id,data}:React.PropsWithChildren<Props>) => {
                 </DragOverlay>
 
             )}
+            {children}
 
         </div>
         
