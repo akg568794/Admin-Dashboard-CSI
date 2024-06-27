@@ -4,7 +4,6 @@ import { TextIcon } from '@/components/text-icon'
 import { User } from '@/graphql/schema.types'
 import { getDateColor } from '@/utilities'
 import { ClockCircleOutlined, DeleteOutlined, EyeOutlined, MoreOutlined } from '@ant-design/icons'
-import { defaultDropAnimationSideEffects } from '@dnd-kit/core'
 import { useDelete, useNavigation } from '@refinedev/core'
 import { Button, Card, ConfigProvider, Dropdown, Space, Tag, theme, Tooltip } from 'antd'
 import { MenuProps } from 'antd/lib'
@@ -83,12 +82,18 @@ const ProjectCard = ({id,title,dueDate,users}:ProjectCardProps) => {
         <Card
         size="small"
         title={<Text ellipsis={{tooltip:title}}>{title}</Text>}
-        onClick={()=>{edit()}}
+        onClick={()=>edit('tasks',id,'replace')}
         extra={
           <Dropdown
           trigger={["click"]}
           menu={{
             items:dropdownItems,
+            onPointerDown:(e)=>{
+              e.stopPropagation()
+            },
+            onClick:(e)=>{
+              e.domEvent.stopPropagation()
+            }
 
           }}
           placement='bottom'
