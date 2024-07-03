@@ -1,4 +1,4 @@
-import { AuthProvider } from "@refinedev/core";
+import { AuthBindings } from "@refinedev/core";
 
 import { API_URL, dataProvider } from "./data";
 
@@ -8,7 +8,7 @@ export const authCredentials = {
   password: "demodemo",
 };
 
-export const authProvider: AuthProvider = {
+export const authProvider: AuthBindings = {
   login: async ({ email }) => {
     try {
       // call the login mutation
